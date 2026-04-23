@@ -1,0 +1,10 @@
+{
+  "baseUrl": "https://demoqa.com",
+  "browser": "chromium",
+  "headless": false,
+  "testUser": {
+    "firstName": "Balak",
+    "lastName": "Tester",
+    "email": "balak.tester@example.com"
+  }
+}
