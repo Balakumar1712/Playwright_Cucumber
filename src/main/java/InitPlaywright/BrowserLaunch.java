@@ -13,23 +13,25 @@ import java.io.InputStream;
 
 public class BrowserLaunch {
 
-    private Browser browser;
-    private Playwright playwright;
+    protected Browser browser;
+    protected Playwright playwright;
+    protected Page page;
 
     @BeforeMethod
     public  void Setup() throws IOException {
         TestData testData = loadTestData();
 
-        try ( Playwright playwright = Playwright.create()) {
-             browser = createBrowser(playwright, testData);
-            Page page = browser.newPage();
-            page.navigate(testData.baseUrl);
-            browser.close();
-        }
+        playwright = Playwright.create();
+        browser = createBrowser(playwright, testData);
+        page = browser.newPage();
+        page.navigate(testData.baseUrl);
     }
 
     @AfterMethod
     public void  TearDown(){
+        if (page != null){
+            page.close();
+        }
         if(browser != null){
             browser.close();
         }

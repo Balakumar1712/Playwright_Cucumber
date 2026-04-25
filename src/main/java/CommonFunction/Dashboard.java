@@ -1,6 +1,9 @@
 package CommonFunction;
 
+import Report.ScreenshotUtil;
 import com.microsoft.playwright.Page;
+
+import static Report.ScreenshotUtil.captureScreenshot;
 
 public class Dashboard {
 
@@ -19,20 +22,30 @@ public class Dashboard {
     private String Interaction = "//h5[contains(text(),'Interaction')]";
 
     public void Elements(){
+        captureScreenshot(page, "DashBoard");
         page.click(Elements);
+        captureScreenshot(page, "Elements");
     }
 
     public void Forms(){
+        captureScreenshot(page, "DashBoard");
         page.click(Forms);
+         captureScreenshot(page, "Forms");
     }
     public void AlertWindowFrame(){
+        captureScreenshot(page, "DashBoard");
         page.click(AlertWindowFrame);
+        captureScreenshot(page, "AlertWindowFrame");
     }
     public void Widgets(){
+        captureScreenshot(page, "DashBoard");
         page.click(Widgets);
+        captureScreenshot(page, "Widgets");
     }
 
     public void Interaction(){
+        captureScreenshot(page, "DashBoard");
         page.click(Interaction);
+        captureScreenshot(page, "Interaction");
     }
 }
