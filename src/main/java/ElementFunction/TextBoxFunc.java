@@ -1,6 +1,5 @@
 package ElementFunction;
 
-import Report.ScreenshotUtil;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.WaitForSelectorState;
@@ -8,6 +7,8 @@ import com.microsoft.playwright.options.WaitForSelectorState;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import static CommonFunction.ScreenshotUtil.captureScreenshot;
 
 public class TextBoxFunc {
 
@@ -20,7 +21,6 @@ public class TextBoxFunc {
     private Locator currentAddressInput;
     private Locator permanentAddressInput;
     private Locator submitButton;
-    private Locator textBoxresult;
 
     public TextBoxFunc(Page page){
         this.page = page;
@@ -30,7 +30,6 @@ public class TextBoxFunc {
         this.currentAddressInput = page.getByPlaceholder("Current Address");
         this.permanentAddressInput = page.locator("//textarea[@id='permanentAddress']");
         this.submitButton = page.locator("#submit");
-        this.textBoxresult = page.locator("#output div");
     }
 
     public Map<String, String> TextBox(String fullName, String email, String currentAddress, String permanentAddress){
@@ -39,7 +38,7 @@ public class TextBoxFunc {
         emailInput.fill(email);//"bala@example.com"
         currentAddressInput.fill(currentAddress);//"Chennai, India"
         permanentAddressInput.fill(permanentAddress);//"Permanent Address Example"
-        String screenshotPath = ScreenshotUtil.captureScreenshot(page, "TextBox");
+        captureScreenshot(page, "TextBox");
         submitButton.click();
 
         List<String> ids = List.of("name","email","currentAddress","permanentAddress");

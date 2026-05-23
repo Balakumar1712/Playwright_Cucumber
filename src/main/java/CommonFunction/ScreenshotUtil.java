@@ -1,4 +1,4 @@
-package Report;
+package CommonFunction;
 
 import com.microsoft.playwright.Page;
 

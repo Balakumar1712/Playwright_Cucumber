@@ -1,9 +1,8 @@
 package CommonFunction;
 
-import Report.ScreenshotUtil;
 import com.microsoft.playwright.Page;
 
-import static Report.ScreenshotUtil.captureScreenshot;
+import static CommonFunction.ScreenshotUtil.captureScreenshot;
 
 public class Dashboard {
 
